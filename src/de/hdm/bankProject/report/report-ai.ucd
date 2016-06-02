@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="report-ai" size="996,1487" id="de.hdm.thies.bankProjekt.report" metadata="uml2-1.0" initialized="true" tag="1000" key="32303035303932372042616E6B50726F6A656B742F726174686B65">
+  <children xsi:type="editmodel:ClassEditModel" name="Column" location="832,1231" size="139,103" id="de.hdm.thies.bankProjekt.report/Column" runTimeClassModel="value,toString(),Column(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="79,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="value" id="de.hdm.thies.bankProjekt.report/Column#value"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="116,36">
+      <children xsi:type="editmodel:MethodEditModel" name="Column" id="de.hdm.thies.bankProjekt.report/Column#Column(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="de.hdm.thies.bankProjekt.report/Column#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Row" location="597,1231" size="185,139" id="de.hdm.thies.bankProjekt.report/Row" runTimeClassModel="getColumnAt(I),addColumn(Lde.hdm.thies.bankProjekt.report.Column;),removeColumn(Lde.hdm.thies.bankProjekt.report.Column;),columns,getNumColumns()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="119,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="columns" id="de.hdm.thies.bankProjekt.report/Row#columns"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,72">
+      <children xsi:type="editmodel:MethodEditModel" name="addColumn" id="de.hdm.thies.bankProjekt.report/Row#addColumn(Lde.hdm.thies.bankProjekt.report.Column;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getColumnAt" id="de.hdm.thies.bankProjekt.report/Row#getColumnAt(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumColumns" id="de.hdm.thies.bankProjekt.report/Row#getNumColumns()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeColumn" id="de.hdm.thies.bankProjekt.report/Row#removeColumn(Lde.hdm.thies.bankProjekt.report.Column;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="HTMLReportWriter" location="528,185" size="448,211" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter" runTimeClassModel="processAllAccountsOfAllCustomersReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfAllCustomersReport;),getTrailer(),processAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfCustomerReport;),paragraph2HTML(Lde.hdm.thies.bankProjekt.report.Paragraph;),paragraph2HTML(Lde.hdm.thies.bankProjekt.report.SimpleParagraph;),reportText,paragraph2HTML(Lde.hdm.thies.bankProjekt.report.CompositeParagraph;),getHeader(),resetReportText()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="103,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="reportText" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#reportText"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="425,144">
+      <children xsi:type="editmodel:MethodEditModel" name="getHeader" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#getHeader()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTrailer" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#getTrailer()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="paragraph2HTML" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#paragraph2HTML(Lde.hdm.thies.bankProjekt.report.Paragraph;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="paragraph2HTML" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#paragraph2HTML(Lde.hdm.thies.bankProjekt.report.SimpleParagraph;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="paragraph2HTML" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#paragraph2HTML(Lde.hdm.thies.bankProjekt.report.CompositeParagraph;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="processAllAccountsOfAllCustomersReport" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#processAllAccountsOfAllCustomersReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfAllCustomersReport;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="processAllAccountsOfCustomerReport" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#processAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfCustomerReport;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="resetReportText" id="de.hdm.thies.bankProjekt.report/HTMLReportWriter#resetReportText()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.hdm.thies.bankProjekt.report/ReportWriter&lt;-de.hdm.thies.bankProjekt.report/HTMLReportWriter" source="//@children.2" target="//@children.3/@sourceConnections.0" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="224,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="PlainTextReportWriter" location="50,185" size="448,157" id="de.hdm.thies.bankProjekt.report/PlainTextReportWriter" runTimeClassModel="processAllAccountsOfAllCustomersReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfAllCustomersReport;),getTrailer(),processAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfCustomerReport;),reportText,getHeader(),resetReportText()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="103,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="reportText" id="de.hdm.thies.bankProjekt.report/PlainTextReportWriter#reportText"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="425,90">
+      <children xsi:type="editmodel:MethodEditModel" name="getHeader" id="de.hdm.thies.bankProjekt.report/PlainTextReportWriter#getHeader()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTrailer" id="de.hdm.thies.bankProjekt.report/PlainTextReportWriter#getTrailer()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="processAllAccountsOfAllCustomersReport" id="de.hdm.thies.bankProjekt.report/PlainTextReportWriter#processAllAccountsOfAllCustomersReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfAllCustomersReport;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="processAllAccountsOfCustomerReport" id="de.hdm.thies.bankProjekt.report/PlainTextReportWriter#processAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfCustomerReport;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="resetReportText" id="de.hdm.thies.bankProjekt.report/PlainTextReportWriter#resetReportText()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.2/@sourceConnections.0" autoLocated="true" id="de.hdm.thies.bankProjekt.report/ReportWriter&lt;-de.hdm.thies.bankProjekt.report/PlainTextReportWriter" source="//@children.3" target="//@children.4" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="224,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="224,85" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="ReportWriter" location="289,50" size="448,85" id="de.hdm.thies.bankProjekt.report/ReportWriter" runTimeClassModel="processAllAccountsOfAllCustomersReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfAllCustomersReport;),processAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfCustomerReport;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="425,36">
+      <children xsi:type="editmodel:MethodEditModel" name="processAllAccountsOfAllCustomersReport" id="de.hdm.thies.bankProjekt.report/ReportWriter#processAllAccountsOfAllCustomersReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfAllCustomersReport;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="processAllAccountsOfCustomerReport" id="de.hdm.thies.bankProjekt.report/ReportWriter#processAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.report.AllAccountsOfCustomerReport;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ReportGeneratorImpl" location="50,1024" size="457,157" id="de.hdm.thies.bankProjekt.report/ReportGeneratorImpl" runTimeClassModel="getBankVerwaltung(),createAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.data.Customer;),addImprint(Lde.hdm.thies.bankProjekt.report.Report;),verwaltung,createAllAccountsOfAllCustomersReport(),ReportGeneratorImpl(Lde.hdm.thies.bankProjekt.BankVerwaltung;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="161,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="verwaltung" id="de.hdm.thies.bankProjekt.report/ReportGeneratorImpl#verwaltung"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="434,90">
+      <children xsi:type="editmodel:MethodEditModel" name="ReportGeneratorImpl" id="de.hdm.thies.bankProjekt.report/ReportGeneratorImpl#ReportGeneratorImpl(Lde.hdm.thies.bankProjekt.BankVerwaltung;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addImprint" id="de.hdm.thies.bankProjekt.report/ReportGeneratorImpl#addImprint(Lde.hdm.thies.bankProjekt.report.Report;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createAllAccountsOfAllCustomersReport" id="de.hdm.thies.bankProjekt.report/ReportGeneratorImpl#createAllAccountsOfAllCustomersReport()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createAllAccountsOfCustomerReport" id="de.hdm.thies.bankProjekt.report/ReportGeneratorImpl#createAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.data.Customer;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBankVerwaltung" id="de.hdm.thies.bankProjekt.report/ReportGeneratorImpl#getBankVerwaltung()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.hdm.thies.bankProjekt.report/ReportGenerator&lt;-de.hdm.thies.bankProjekt.report/ReportGeneratorImpl" source="//@children.5" target="//@children.6" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="228,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="228,99"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.5/@sourceConnections.0" name="ReportGenerator" location="50,875" size="457,99" stereotype="interface" id="de.hdm.thies.bankProjekt.report/ReportGenerator" runTimeClassModel="createAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.data.Customer;),createAllAccountsOfAllCustomersReport()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="434,36">
+      <children xsi:type="editmodel:MethodEditModel" name="createAllAccountsOfAllCustomersReport" id="de.hdm.thies.bankProjekt.report/ReportGenerator#createAllAccountsOfAllCustomersReport()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createAllAccountsOfCustomerReport" id="de.hdm.thies.bankProjekt.report/ReportGenerator#createAllAccountsOfCustomerReport(Lde.hdm.thies.bankProjekt.data.Customer;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="CompositeParagraph" location="285,1310" size="262,157" id="de.hdm.thies.bankProjekt.report/CompositeParagraph" runTimeClassModel="removeSubParagraph(Lde.hdm.thies.bankProjekt.report.SimpleParagraph;),getNumParagraphs(),addSubParagraph(Lde.hdm.thies.bankProjekt.report.SimpleParagraph;),toString(),subParagraphs,getParagraphAt(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="subParagraphs" id="de.hdm.thies.bankProjekt.report/CompositeParagraph#subParagraphs"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="239,90">
+      <children xsi:type="editmodel:MethodEditModel" name="addSubParagraph" id="de.hdm.thies.bankProjekt.report/CompositeParagraph#addSubParagraph(Lde.hdm.thies.bankProjekt.report.SimpleParagraph;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumParagraphs" id="de.hdm.thies.bankProjekt.report/CompositeParagraph#getNumParagraphs()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getParagraphAt" id="de.hdm.thies.bankProjekt.report/CompositeParagraph#getParagraphAt(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeSubParagraph" id="de.hdm.thies.bankProjekt.report/CompositeParagraph#removeSubParagraph(Lde.hdm.thies.bankProjekt.report.SimpleParagraph;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="de.hdm.thies.bankProjekt.report/CompositeParagraph#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.hdm.thies.bankProjekt.report/Paragraph&lt;-de.hdm.thies.bankProjekt.report/CompositeParagraph" source="//@children.7" target="//@children.8/@sourceConnections.0" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="131,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SimpleParagraph" location="50,1310" size="205,103" id="de.hdm.thies.bankProjekt.report/SimpleParagraph" runTimeClassModel="text,toString(),SimpleParagraph(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="71,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="text" id="de.hdm.thies.bankProjekt.report/SimpleParagraph#text"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="182,36">
+      <children xsi:type="editmodel:MethodEditModel" name="SimpleParagraph" id="de.hdm.thies.bankProjekt.report/SimpleParagraph#SimpleParagraph(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="de.hdm.thies.bankProjekt.report/SimpleParagraph#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.7/@sourceConnections.0" autoLocated="true" id="de.hdm.thies.bankProjekt.report/Paragraph&lt;-de.hdm.thies.bankProjekt.report/SimpleParagraph" source="//@children.8" target="//@children.9" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="102,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="54,29" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0" name="Paragraph" location="229,1231" size="109,29" id="de.hdm.thies.bankProjekt.report/Paragraph" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AllAccountsOfCustomerReport" location="335,796" size="232,29" id="de.hdm.thies.bankProjekt.report/AllAccountsOfCustomerReport" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.hdm.thies.bankProjekt.report/SimpleReport&lt;-de.hdm.thies.bankProjekt.report/AllAccountsOfCustomerReport" source="//@children.10" target="//@children.13" targetEnd="//@children.10/@sourceConnections.0/@children.1" sourceEnd="//@children.10/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="116,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="78,121"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.12/@sourceConnections.0" name="CompositeReport" location="145,607" size="198,139" id="de.hdm.thies.bankProjekt.report/CompositeReport" runTimeClassModel="removeSubReport(Lde.hdm.thies.bankProjekt.report.Report;),addSubReport(Lde.hdm.thies.bankProjekt.report.Report;),getNumSubReports(),getSubReportAt(I),subReports">
+    <children xsi:type="editmodel:CompartmentEditModel" size="135,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="subReports" id="de.hdm.thies.bankProjekt.report/CompositeReport#subReports"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="175,72">
+      <children xsi:type="editmodel:MethodEditModel" name="addSubReport" id="de.hdm.thies.bankProjekt.report/CompositeReport#addSubReport(Lde.hdm.thies.bankProjekt.report.Report;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumSubReports" id="de.hdm.thies.bankProjekt.report/CompositeReport#getNumSubReports()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSubReportAt" id="de.hdm.thies.bankProjekt.report/CompositeReport#getSubReportAt(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeSubReport" id="de.hdm.thies.bankProjekt.report/CompositeReport#removeSubReport(Lde.hdm.thies.bankProjekt.report.Report;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.13/@sourceConnections.0" autoLocated="true" id="de.hdm.thies.bankProjekt.report/Report&lt;-de.hdm.thies.bankProjekt.report/CompositeReport" source="//@children.11" target="//@children.14" targetEnd="//@children.11/@sourceConnections.0/@children.1" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="77,111" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AllAccountsOfAllCustomersReport" location="50,796" size="255,29" id="de.hdm.thies.bankProjekt.report/AllAccountsOfAllCustomersReport" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.hdm.thies.bankProjekt.report/CompositeReport&lt;-de.hdm.thies.bankProjekt.report/AllAccountsOfAllCustomersReport" source="//@children.12" target="//@children.11" targetEnd="//@children.12/@sourceConnections.0/@children.1" sourceEnd="//@children.12/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="174,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="79,139"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.10/@sourceConnections.0" name="SimpleReport" location="373,607" size="156,121" id="de.hdm.thies.bankProjekt.report/SimpleReport" runTimeClassModel="table,removeRow(Lde.hdm.thies.bankProjekt.report.Row;),addRow(Lde.hdm.thies.bankProjekt.report.Row;),getRows()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="102,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="table" id="de.hdm.thies.bankProjekt.report/SimpleReport#table"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,54">
+      <children xsi:type="editmodel:MethodEditModel" name="addRow" id="de.hdm.thies.bankProjekt.report/SimpleReport#addRow(Lde.hdm.thies.bankProjekt.report.Row;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRows" id="de.hdm.thies.bankProjekt.report/SimpleReport#getRows()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeRow" id="de.hdm.thies.bankProjekt.report/SimpleReport#removeRow(Lde.hdm.thies.bankProjekt.report.Row;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.hdm.thies.bankProjekt.report/Report&lt;-de.hdm.thies.bankProjekt.report/SimpleReport" source="//@children.13" target="//@children.11/@sourceConnections.0" targetEnd="//@children.13/@sourceConnections.0/@children.1" sourceEnd="//@children.13/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="78,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.0" name="Report" location="270,446" size="154,111" id="de.hdm.thies.bankProjekt.report/Report" runTimeClassModel="created,headerData,imprint,title">
+    <children xsi:type="editmodel:CompartmentEditModel" size="131,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="created" id="de.hdm.thies.bankProjekt.report/Report#created"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="headerData" id="de.hdm.thies.bankProjekt.report/Report#headerData"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="imprint" id="de.hdm.thies.bankProjekt.report/Report#imprint"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="title" id="de.hdm.thies.bankProjekt.report/Report#title"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=3"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

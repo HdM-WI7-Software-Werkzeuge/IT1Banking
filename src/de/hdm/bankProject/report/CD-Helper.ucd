@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" id="thiesnbThiesBankProjekt4161" metadata="nsuml-1.4" initialized="true" showWireOptions="3">
+  <children xsi:type="editmodel:ClassEditModel" location="55,299" size="149,126" targetConnections="//@children.1/@sourceConnections.0" id="thiesnbThiesBankProjekt5502" runTimeClassModel="thiesnbthiesBankProjekt6760;thiesnbThiesBankProjekt5518;thiesnbThiesBankProjekt5520;thiesnbThiesBankProjekt5516;thiesnbThiesBankProjekt5909">
+    <children xsi:type="editmodel:CompartmentEditModel" size="68,16">
+      <children xsi:type="editmodel:AttributeEditModel" id="thiesnbThiesBankProjekt5516"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="129,64">
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5518"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5520"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5909"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbthiesBankProjekt6760"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="37,38" size="184,174" id="thiesnbThiesBankProjekt5500" runTimeClassModel="thiesnbThiesBankProjekt5506;thiesnbThiesBankProjekt6050;thiesnbThiesBankProjekt6048;thiesnbThiesBankProjekt5504;thiesnbThiesBankProjekt6046;thiesnbThiesBankProjekt5509">
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,32">
+      <children xsi:type="editmodel:AttributeEditModel" id="thiesnbThiesBankProjekt5504"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="164,80">
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5506"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5509"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt6048"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt6046"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt6050"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="thiesnbThiesBankProjekt5527" connectionRouterKind="Manual" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1">
+      <children xsi:type="editmodel:WireLabelEditModel" size="63,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="-1,0" id="thiesnbThiesBankProjekt5528" attachSource="true" roleLabel="//@children.1/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="28,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" id="thiesnbThiesBankProjekt5529" aggregationKind="Aggregration" navigable="true" flags="2" multiplicityLabel="//@children.1/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.1/@sourceConnections.0/@children.2/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="48,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" size="17,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="459,147" size="264,158" id="thiesnbThiesBankProjekt5421" runTimeClassModel="thiesnbThiesBankProjekt5435;thiesnbThiesBankProjekt5441;thiesnbThiesBankProjekt6001;thiesnbThiesBankProjekt6081;thiesnbThiesBankProjekt6083;thiesnbThiesBankProjekt5433;thiesnbThiesBankProjekt5438">
+    <children xsi:type="editmodel:CompartmentEditModel" size="121,16">
+      <children xsi:type="editmodel:AttributeEditModel" id="thiesnbThiesBankProjekt5433"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="244,96">
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5435"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5441"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5438"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt6001"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt6081"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt6083"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="thiesnbThiesBankProjekt5422" connectionRouterKind="Manual" source="//@children.2" target="//@children.4/@sourceConnections.0" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="131,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="thiesnbThiesBankProjekt5977" connectionRouterKind="Manual" source="//@children.2" target="//@children.4" targetEnd="//@children.2/@sourceConnections.1/@children.1" label="//@children.2/@sourceConnections.1/@children.2" sourceEnd="//@children.2/@sourceConnections.1/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,50" id="thiesnbThiesBankProjekt5978" attachSource="true" roleLabel="//@children.2/@sourceConnections.1/@children.0/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="107,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" id="thiesnbThiesBankProjekt5979" aggregationKind="Aggregration" navigable="true" flags="2" multiplicityLabel="//@children.2/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.1/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="82,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" size="17,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="76,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <bendpoints secondRelativeDimension="241,169" firstRelativeDimension="-2,153"/>
+      <bendpoints secondRelativeDimension="0,168" firstRelativeDimension="-243,152"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="428,32" size="84,26" targetConnections="//@children.4/@sourceConnections.0" id="thiesnbThiesBankProjekt5416" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="255,147" size="187,126" targetConnections="//@children.2/@sourceConnections.1" id="thiesnbThiesBankProjekt5418" runTimeClassModel="thiesnbThiesBankProjekt5860;thiesnbThiesBankProjekt5428;thiesnbThiesBankProjekt5426;thiesnbThiesBankProjekt5975;thiesnbThiesBankProjekt5424">
+    <children xsi:type="editmodel:CompartmentEditModel" size="60,16">
+      <children xsi:type="editmodel:AttributeEditModel" id="thiesnbThiesBankProjekt5424"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="167,64">
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5426"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5428"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5860"/>
+      <children xsi:type="editmodel:MethodEditModel" id="thiesnbThiesBankProjekt5975"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.2/@sourceConnections.0" id="thiesnbThiesBankProjekt5419" connectionRouterKind="GeneralizationManhattan" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="93,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="42,26" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showMethodsParameterTypes="true" showMethodsReturnType="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showInterfaceStereotype="true" showClassStereotype="true" showPackageStereotype="true"/>
+</editmodel:ClassDiagramEditModel>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>IT1_Banking</display-name>
+  <welcome-file-list>
+    <welcome-file>KontenAnzeige.html</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+	<servlet>
+		<servlet-name>AccountsReport</servlet-name>
+		<servlet-class>de.hdm.bankProject.servlet.AccountsReport</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AccountsReport</servlet-name>
+		<url-pattern>/AccountsReport</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CustomersReport</servlet-name>
+		<servlet-class>de.hdm.bankProject.servlet.CustomersReport</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CustomersReport</servlet-name>
+		<url-pattern>/CustomersReport</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AccountsDisplay</servlet-name>
+		<servlet-class>de.hdm.bankProject.servlet.AccountsDisplay</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AccountsDisplay</servlet-name>
+		<url-pattern>/AccountsDisplay</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
