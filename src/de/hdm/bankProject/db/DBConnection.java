@@ -37,9 +37,9 @@ public class DBConnection {
 	 * Der Name des Datenbank-Servers in form eines Hostnames.
 	 */
 	private static String dbHost = 
-			//"localhost";
+			"localhost";
 			//"ceresvm.iuk.hdm-stuttgart.de:3306";
-			"db4free.net";
+			//"db4free.net";
 	/**
 	 * Der Name der Datenbank. Diese Datenbank wird entweder in Derby mit Hilfe von
 	 * Dateien im Dateisystem realisiert. Dann ist der Name der Datenbank ist gleichzeit
