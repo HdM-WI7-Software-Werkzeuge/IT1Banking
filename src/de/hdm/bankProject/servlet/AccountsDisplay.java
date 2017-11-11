@@ -28,7 +28,7 @@ public class AccountsDisplay extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -37,10 +37,16 @@ public class AccountsDisplay extends HttpServlet {
 
 		BankAdministration verwaltung = new BankAdministration();
 		Vector<Customer> customers;
-		if (request.getParameter("name")=="") {
-			customers = verwaltung.getAllCustomers();
+		String customerName = request.getParameter("name");
+
+		if (customerName != null) {
+			if (customerName == "") {
+				customers = verwaltung.getAllCustomers();
+			} else {
+				customers = verwaltung.getCustomerByName(customerName);
+			}
 		} else {
-			customers = verwaltung.getCustomerByName(request.getParameter("name"));
+			customers = new Vector<Customer>();
 		}
 
 		// Set response content type
@@ -49,7 +55,7 @@ public class AccountsDisplay extends HttpServlet {
 		String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
 		out.println(docType);
 		out.println("<html><body>");
-		
+
 		out.println("<h2>Kontenanzeige</h2>\n" + "<form action=\"AccountsDisplay\" method=\"POST\">\n"
 				+ "Nachname: <input type=\"text\" name=\"name\" />\n" + "<input type=\"submit\" value=\"Anzeigen\" />\n"
 				+ "</form>");
