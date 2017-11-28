@@ -8,28 +8,45 @@ package de.hdm.bankProject.db;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Vector;
 
 /**
  *
  * @author Christian Rathke
  */
-public class DataMapper {
+public abstract class DataMapper<D> {
     /**
      * Object cache für Speichern und Zugriff
      */
-    private Map<Integer,Object> rememberedObjects = new HashMap<Integer,Object>();
+    private Map<Integer,D> cache = new HashMap<Integer,D>();
 
-    protected Object checkForObject (int id) {
-        Object data = rememberedObjects.get(id);
+    protected D checkFor (int id) {
+        D data = cache.get(id);
         if (data == null) return null;
         return data;
     }
 
-    protected void rememberObject(int id, Object data) {
-        rememberedObjects.put(id, data);
+    protected void remember(int id, D data) {
+        cache.put(id, data);
     }
 
-    protected void removeObject(int id) {
-        rememberedObjects.remove(id);
+    protected void remove(int id) {
+        cache.remove(id);
     }
+    
+    public abstract void removeTable();
+    
+    public abstract void reCreateTable();
+    
+    public abstract void fillTable(String dataString);
+    
+    public abstract D findByKey(int id);
+    
+    public abstract Vector<D> findAll();
+    
+    public abstract D insert(D data);
+    
+    public abstract D update(D data);
+    
+    public abstract void delete(D data);
 }

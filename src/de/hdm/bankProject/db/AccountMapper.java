@@ -15,7 +15,7 @@ import de.hdm.bankProject.data.*;
  * @see CustomerMapper
  * @author Thies
  */
-public class AccountMapper extends DataMapper {
+public class AccountMapper extends DataMapper<Account> {
 
 	/**
 	 * Die Klasse AccountMapper wird nur einmal instantiiert. Man spricht
@@ -112,7 +112,7 @@ public class AccountMapper extends DataMapper {
 	public Account findByKey(int id) {
 
 		// auf existierendem Account prüfen
-		Account a = (Account) this.checkForObject(id);
+		Account a = checkFor(id);
 		if (a != null) {
 			return a;
 		}
@@ -138,7 +138,7 @@ public class AccountMapper extends DataMapper {
 				a.setOwner(CustomerMapper.customerMapper().findByKey(rs.getInt("owner")));
 				a.setBalance(rs.getFloat("balance"));
 				// wir merken uns das Account-Objekt im Cache
-				this.rememberObject(id, a);
+				this.remember(id, a);
 				return a;
 			}
 		} catch (SQLException e2) {
@@ -169,14 +169,14 @@ public class AccountMapper extends DataMapper {
 			// erstellt.
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				Account a = (Account) this.checkForObject(id);
+				Account a = checkFor(id);
 				if (a == null) {
 					a = new Account();
 					a.setId(id);
 					a.setOwner(CustomerMapper.customerMapper().findByKey(rs.getInt("owner")));
 					a.setBalance(rs.getFloat("balance"));
 					// im Cache merken
-					this.rememberObject(id, a);
+					this.remember(id, a);
 				}
 				// Hinzufuegen des neuen Objekts zum Ergebnisvektor
 				result.addElement(a);
@@ -214,14 +214,14 @@ public class AccountMapper extends DataMapper {
 			// erstellt.
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				Account a = (Account) this.checkForObject(id);
+				Account a = checkFor(id);
 				if (a == null) {
 					a = new Account();
 					a.setId(id);
 					a.setOwner(CustomerMapper.customerMapper().findByKey(rs.getInt("owner")));
 					a.setBalance(rs.getFloat("balance"));
 					// im Cache merken
-					this.rememberObject(id, a);
+					this.remember(id, a);
 				}
 				// Hinzufuegen des neuen Objekts zum Ergebnisvektor
 				result.addElement(a);
@@ -284,7 +284,7 @@ public class AccountMapper extends DataMapper {
 				stmt.executeUpdate("INSERT INTO accounts (id, owner, balance) " + "VALUES (" + a.getId() + ","
 						+ a.getOwner().getId() + "," + a.getBalance() + ")");
 				// anschließend merken wir uns das Objekt im Cache
-				this.rememberObject(a.getId(), a);
+				remember(a.getId(), a);
 			}
 		} catch (SQLException e2) {
 			e2.printStackTrace();
@@ -323,8 +323,8 @@ public class AccountMapper extends DataMapper {
 		}
 		// falls das Objekt noch nicht ge-cached wurde oder ein anderes unter
 		// dieser Id vorliegt...
-		if (this.checkForObject(a.getId()) != a)
-			this.rememberObject(a.getId(), a);
+		if (checkFor(a.getId()) != a)
+			remember(a.getId(), a);
 		// Um Analogie zu insert(Account a) zu wahren, geben wir a zurueck
 		return a;
 	}
@@ -341,7 +341,7 @@ public class AccountMapper extends DataMapper {
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate("DELETE FROM accounts " + "WHERE id=" + a.getId());
 			// der Account wird auch aus dem Cache entfernt
-			this.removeObject(a.getId());
+			remove(a.getId());
 		} catch (SQLException e2) {
 			e2.printStackTrace();
 		}

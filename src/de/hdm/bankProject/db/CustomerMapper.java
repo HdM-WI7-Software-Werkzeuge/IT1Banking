@@ -19,7 +19,7 @@ import de.hdm.bankProject.data.*;
  * @see AccountMapper
  * @author Thies
  */
-public class CustomerMapper extends DataMapper {
+public class CustomerMapper extends DataMapper<Customer> {
 
     /**
      * Die Klasse CustomerMapper wird nur einmal instantiiert. Man spricht hierbei
@@ -112,7 +112,7 @@ public class CustomerMapper extends DataMapper {
      */
     public Customer findByKey(int id) {
         // auf existierendem Customer prüfen
-        Customer c = (Customer) this.checkForObject(id);
+        Customer c = checkFor(id);
         if (c != null) {
             return c;
         }
@@ -137,7 +137,7 @@ public class CustomerMapper extends DataMapper {
                 c.setFirstName(rs.getString("firstName"));
                 c.setLastName(rs.getString("lastName"));
                 // wir merken uns das Customer-Objekt im Cache
-                this.rememberObject(id, c);
+                this.remember(id, c);
                 return c;
             }
         } catch (SQLException e2) {
@@ -167,14 +167,14 @@ public class CustomerMapper extends DataMapper {
             // Fuer jeden Eintrag im Suchergebnis wird nun ein Customer-Objekt erstellt.
             while (rs.next()) {
                 int id = rs.getInt("id");
-                Customer c = (Customer) this.checkForObject(id);
+                Customer c = checkFor(id);
                 if (c == null) {
                     c = new Customer();
                     c.setId(id);
                     c.setFirstName(rs.getString("firstName"));
                     c.setLastName(rs.getString("lastName"));
                     // wer merken uns das Customer-Objekt im Cache
-                    this.rememberObject(id, c);
+                    remember(id, c);
                 }
                 // Hinzufuegen des neuen Objekts zum Ergebnisvektor
                 result.addElement(c);
@@ -207,14 +207,14 @@ public class CustomerMapper extends DataMapper {
             // Fuer jeden Eintrag im Suchergebnis wird nun ein Customer-Objekt erstellt.
             while (rs.next()) {
                 int id = rs.getInt("id");
-                Customer c = (Customer) this.checkForObject(id);
+                Customer c = checkFor(id);
                 if (c == null) {
                     c = new Customer();
                     c.setId(id);
                     c.setFirstName(rs.getString("firstName"));
                     c.setLastName(rs.getString("lastName"));
                     // wir merken uns das Customer-Objekt im Cache
-                    this.rememberObject(id, c);
+                    remember(id, c);
                 }
                 // Hinzufuegen des neuen Objekts zum Ergebnisvektor
                 result.addElement(c);
@@ -261,7 +261,7 @@ public class CustomerMapper extends DataMapper {
                         c.getFirstName() + "','" +
                         c.getLastName() + "')");
                 // Anschließend merken wir uns das Customer-Objekt im Cache
-                this.rememberObject(c.getId(), c);
+                remember(c.getId(), c);
             }
         } catch (SQLException e2) {
             e2.printStackTrace();
@@ -298,7 +298,7 @@ public class CustomerMapper extends DataMapper {
         }
         // falls das Objekt noch nicht im Cache ist (sollte nicht passieren), wird
         // es dort vermerkt.
-        if (c!=this.checkForObject(c.getId())) this.rememberObject(c.getId(), c);
+        if (c!=this.checkFor(c.getId())) this.remember(c.getId(), c);
         // Um Analogie zu insert(Customer c) zu wahren, geben wir c zurueck
         return c;
     }
@@ -315,7 +315,7 @@ public class CustomerMapper extends DataMapper {
             stmt.executeUpdate("DELETE FROM customers " +
                     "WHERE id=" + c.getId());
             // Löschen aus dem Cache
-            this.removeObject(c.getId());
+            this.remove(c.getId());
         } catch (SQLException e2) {
             e2.printStackTrace();
         }
