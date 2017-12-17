@@ -4,6 +4,7 @@ package de.hdm.bankProject.data;
  * Klasse der Bankkonten
  * @author Thies
  */
+
 public class Account {
 
     /**

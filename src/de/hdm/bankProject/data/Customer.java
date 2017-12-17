@@ -1,12 +1,15 @@
 package de.hdm.bankProject.data;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Klasse der Bankkunden
  * @author Thies
  */
 public class Customer {
 
-    /**
+    
+	/**
      * Nachname des Kunden
      */
     private String lastName = "";
@@ -46,7 +49,7 @@ public class Customer {
     /**
      * Vornamen setzen.
      * @param first Vorname
-     */
+     */  
     public void setFirstName(String string) {
         firstName = string;
     }
@@ -54,7 +57,7 @@ public class Customer {
     /**
      * Kundennummer setzen.
      * @param theId Kundennummer
-     */
+     */ 
     public void setId(int i) {
         id = i;
     }
@@ -62,7 +65,7 @@ public class Customer {
     /**
      * Nachnamen setzen.
      * @param first Nachname
-     */
+     */  
     public void setLastName(String string) {
         lastName = string;
     }
