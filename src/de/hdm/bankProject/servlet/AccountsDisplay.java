@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import de.hdm.bankProject.BankAdministration;
+import de.hdm.bankProject.BankAdministrationImpl;
 import de.hdm.bankProject.data.Account;
 import de.hdm.bankProject.data.Customer;
 
@@ -35,7 +36,7 @@ public class AccountsDisplay extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		BankAdministration verwaltung = new BankAdministration();
+		BankAdministration verwaltung = new BankAdministrationImpl();
 		Vector<Customer> customers;
 		String customerName = request.getParameter("name");
 

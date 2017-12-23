@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import de.hdm.bankProject.BankAdministration;
+import de.hdm.bankProject.BankAdministrationImpl;
 import de.hdm.bankProject.data.Customer;
 import de.hdm.bankProject.report.AllAccountsOfCustomerReport;
 import de.hdm.bankProject.report.HTMLReportWriter;
@@ -64,7 +64,7 @@ public class AccountsReport extends HttpServlet {
 
 	private static AllAccountsOfCustomerReport createAllAccountsOfCustomerReport() {
 
-		BankAdministration verwaltung = new BankAdministration();
+		BankAdministrationImpl verwaltung = new BankAdministrationImpl();
 		ReportGenerator gen = verwaltung.getReportGenerator();
 
 		// Die Bank fragen wir, ob sie einen Kunden mit der Kd.-Nr. 1 kennt.

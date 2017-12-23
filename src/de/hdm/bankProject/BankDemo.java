@@ -5,7 +5,7 @@ import de.hdm.bankProject.db.CustomerMapper;
 
 public class BankDemo {
 	public static void main(String[] args) {
-		BankAdministration ba = new BankAdministration();
+		BankAdministrationImpl ba = new BankAdministrationImpl();
 		ba.initializeDB();
 		
 		String accountDataString = 
@@ -21,12 +21,12 @@ public class BankDemo {
 		AccountMapper.accountMapper().fillTable(accountDataString);
 		
 		String cutomerDataString =
-				"(1,'Herbert','Müller'), "
+				"(1,'Herbert','Mï¿½ller'), "
 				+ "(2,'Erna','Sparbier'), "
 				+ "(3,'Sandra','Schweigemeier'), "
 				+ "(4,'Helmut','Schmidt'), "
 				+ "(5,'Helmut','Kohl'), "
-				+ "(6,'Gerhard','Schröder'), "
+				+ "(6,'Gerhard','Schrï¿½der'), "
 				+ "(7,'Willy','Brand'), "
 				+ "(8,'Kurt Georg','Kiesinger'), "
 				+ "(9,'Ludwig','Erhard'), "

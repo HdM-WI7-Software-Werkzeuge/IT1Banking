@@ -1,7 +1,5 @@
 package de.hdm.bankProject.data;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * Klasse der Bankkunden
  * @author Thies
@@ -21,6 +19,7 @@ public class Customer {
      * Kundennummer des Kunden
      */
     private int id = 0;
+    
 
     /**
      * Vornamen auslesen
@@ -68,6 +67,10 @@ public class Customer {
      */  
     public void setLastName(String string) {
         lastName = string;
+    }
+    
+    public String toString() {
+    	return firstName + " " + lastName;
     }
 
     @Override

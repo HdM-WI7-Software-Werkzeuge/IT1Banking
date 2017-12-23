@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -21,10 +22,11 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import de.hdm.bankProject.BankAdministration;
+import de.hdm.bankProject.BankAdministrationImpl;
+import de.hdm.bankProject.BankAdministrationWeb;
 import de.hdm.bankProject.data.Account;
 import de.hdm.bankProject.data.Customer;
-import de.hdm.bankProject.BankAdministration;
-import java.util.Vector;
 
 /**
  * Hauptklasse des Bank-Interface.
@@ -50,17 +52,20 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 	}
 
 	public static void main(String[] args) {
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 
-			public void run() {
-				createAndShowGUI();
-			}
-		});
-	}
-
-	private static void createAndShowGUI() {
-		BankInterface bi = new BankInterface(new BankAdministration());
-		bi.generateComponents();
+		if (args.length > 0) {
+			javax.swing.SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					new BankInterface(new BankAdministrationWeb()).generateComponents();
+				}
+			});
+		} else {
+			javax.swing.SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					new BankInterface(new BankAdministrationImpl()).generateComponents();
+				}
+			});
+		}
 	}
 
 	/**

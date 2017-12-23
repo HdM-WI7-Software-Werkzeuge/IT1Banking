@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import de.hdm.bankProject.BankAdministration;
+import de.hdm.bankProject.BankAdministrationImpl;
 import de.hdm.bankProject.data.Account;
 import de.hdm.bankProject.data.Customer;
 
@@ -19,7 +19,7 @@ public class BankApplication extends Application {
 
 	public BankApplication() {
 		//singletons.add(new HelloWorld());
-		classes.add(BankAdministration.class);
+		classes.add(BankAdministrationImpl.class);
 		classes.add(Customer.class);
 		classes.add(Account.class);
 	}

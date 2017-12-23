@@ -89,6 +89,10 @@ public class Account {
     public void makeWithdrawal(float amount) {
         this.balance = this.balance - amount;
     }
+    
+    public String toString() {
+    	return "Account No. " + id;
+    }
 
     /**
      * Feststellen der Gleichheit zweier Account-Objekte. Die Gleichheit wird in

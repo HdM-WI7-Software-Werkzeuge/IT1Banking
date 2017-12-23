@@ -18,12 +18,12 @@ import de.hdm.bankProject.data.*;
 public class AccountMapper extends DataMapper<Account> {
 
 	/**
-	 * Die Klasse AccountMapper wird nur einmal instantiiert. Man spricht
-	 * hierbei von einem sogenannten <b>Singleton</b>.
+	 * Die Klasse AccountMapper wird nur einmal instantiiert. Man spricht hierbei
+	 * von einem sogenannten <b>Singleton</b>.
 	 * <p>
-	 * Diese Variable ist durch den Bezeichner <code>static</code> nur einmal
-	 * fuer saemtliche eventuellen Instanzen dieser Klasse vorhanden. Sie
-	 * speichert die einzige Instanz dieser Klasse.
+	 * Diese Variable ist durch den Bezeichner <code>static</code> nur einmal fuer
+	 * saemtliche eventuellen Instanzen dieser Klasse vorhanden. Sie speichert die
+	 * einzige Instanz dieser Klasse.
 	 *
 	 * @see accountMapper()
 	 */
@@ -39,13 +39,12 @@ public class AccountMapper extends DataMapper<Account> {
 	/**
 	 * Diese statische Methode kann aufgrufen werden durch
 	 * <code>AccountMapper.accountMapper()</code>. Sie stellt die
-	 * Singleton-Eigenschaft sicher, indem Sie dafuer sorgt, dass nur eine
-	 * einzige Instanz von <code>AccountMapper</code> existiert.
+	 * Singleton-Eigenschaft sicher, indem Sie dafuer sorgt, dass nur eine einzige
+	 * Instanz von <code>AccountMapper</code> existiert.
 	 * <p>
 	 *
 	 * <b>Fazit:</b> AccountMapper sollte nicht mittels <code>new</code>
-	 * instantiiert werden, sondern stets durch Aufruf dieser statischen
-	 * Methode.
+	 * instantiiert werden, sondern stets durch Aufruf dieser statischen Methode.
 	 *
 	 * @return DAS <code>AccountMapper</code>-Objekt.
 	 * @see accountMapper
@@ -57,7 +56,7 @@ public class AccountMapper extends DataMapper<Account> {
 
 		return accountMapper;
 	}
-	
+
 	public void removeTable() {
 		Connection con = DBConnection.connection();
 		Statement stmt;
@@ -71,12 +70,8 @@ public class AccountMapper extends DataMapper<Account> {
 
 	public void reCreateTable() {
 		removeTable();
-		String sqlString = "CREATE TABLE accounts"
-				+ " (" + "id int NOT NULL default 0, "
-				+ "owner int NOT NULL default 0, "
-				+ "balance float NOT NULL default 0, "
-				+ "PRIMARY KEY (id) "
-				+ ") ";
+		String sqlString = "CREATE TABLE accounts" + " (" + "id int NOT NULL default 0, "
+				+ "owner int NOT NULL default 0, " + "balance float NOT NULL default 0, " + "PRIMARY KEY (id) " + ") ";
 		Connection con = DBConnection.connection();
 		Statement stmt;
 		try {
@@ -87,7 +82,7 @@ public class AccountMapper extends DataMapper<Account> {
 		}
 
 	}
-	
+
 	public void fillTable(String dataString) {
 		String sqlString = "INSERT INTO accounts (id,owner,balance) VALUES " + dataString;
 		Connection con = DBConnection.connection();
@@ -106,17 +101,10 @@ public class AccountMapper extends DataMapper<Account> {
 	 *
 	 * @param id
 	 *            Primaerschluesselattribut (->DB)
-	 * @return Konto-Objekt, das dem uebergebenen Schluessel entspricht, null
-	 *         bei nicht vorhandenem DB-Tupel.
+	 * @return Konto-Objekt, das dem uebergebenen Schluessel entspricht, null bei
+	 *         nicht vorhandenem DB-Tupel.
 	 */
 	public Account findByKey(int id) {
-
-		// auf existierendem Account prüfen
-		Account a = checkFor(id);
-		if (a != null) {
-			return a;
-		}
-
 		// DB-Verbindung holen
 		Connection con = DBConnection.connection();
 
@@ -128,17 +116,15 @@ public class AccountMapper extends DataMapper<Account> {
 			ResultSet rs = stmt
 					.executeQuery("SELECT id, owner, balance FROM accounts " + "WHERE id=" + id + " ORDER BY owner");
 			/*
-			 * Da id Primaerschluessel ist, kann max. nur ein Tupel
-			 * zurueckgegeben werden. Pruefe, ob ein Ergebnis vorliegt.
+			 * Da id Primaerschluessel ist, kann max. nur ein Tupel zurueckgegeben werden.
+			 * Pruefe, ob ein Ergebnis vorliegt.
 			 */
 			if (rs.next()) {
 				// Ergebnis-Tupel in Objekt umwandeln
-				a = new Account();
+				Account a = new Account();
 				a.setId(rs.getInt("id"));
 				a.setOwner(CustomerMapper.customerMapper().findByKey(rs.getInt("owner")));
 				a.setBalance(rs.getFloat("balance"));
-				// wir merken uns das Account-Objekt im Cache
-				this.remember(id, a);
 				return a;
 			}
 		} catch (SQLException e2) {
@@ -152,8 +138,8 @@ public class AccountMapper extends DataMapper<Account> {
 	 * Auslesen aller Konten.
 	 *
 	 * @return Ein Vektor mit Account-Objekten, die saemtliche Konten
-	 *         repraesentieren. Bei evtl. Exceptions wird ein partiell
-	 *         gefuellter oder ggf. auch leerer Vetor zurueckgeliefert.
+	 *         repraesentieren. Bei evtl. Exceptions wird ein partiell gefuellter
+	 *         oder ggf. auch leerer Vetor zurueckgeliefert.
 	 */
 	public Vector<Account> findAll() {
 		Connection con = DBConnection.connection();
@@ -168,16 +154,10 @@ public class AccountMapper extends DataMapper<Account> {
 			// Fuer jeden Eintrag im Suchergebnis wird nun ein Account-Objekt
 			// erstellt.
 			while (rs.next()) {
-				int id = rs.getInt("id");
-				Account a = checkFor(id);
-				if (a == null) {
-					a = new Account();
-					a.setId(id);
-					a.setOwner(CustomerMapper.customerMapper().findByKey(rs.getInt("owner")));
-					a.setBalance(rs.getFloat("balance"));
-					// im Cache merken
-					this.remember(id, a);
-				}
+				Account a = new Account();
+				a.setId(rs.getInt("id"));
+				a.setOwner(CustomerMapper.customerMapper().findByKey(rs.getInt("owner")));
+				a.setBalance(rs.getFloat("balance"));
 				// Hinzufuegen des neuen Objekts zum Ergebnisvektor
 				result.addElement(a);
 			}
@@ -196,9 +176,8 @@ public class AccountMapper extends DataMapper<Account> {
 	 * @param ownerID
 	 *            Schluessel des zugehoerigen Kunden.
 	 * @return Ein Vektor mit Account-Objekten, die saemtliche Konten des
-	 *         betreffenden Kunden repraesentieren. Bei evtl. Exceptions wird
-	 *         ein partiell gefuellter oder ggf. auch leerer Vetor
-	 *         zurueckgeliefert.
+	 *         betreffenden Kunden repraesentieren. Bei evtl. Exceptions wird ein
+	 *         partiell gefuellter oder ggf. auch leerer Vetor zurueckgeliefert.
 	 */
 	public Vector<Account> findByOwner(int ownerID) {
 		Connection con = DBConnection.connection();
@@ -213,16 +192,11 @@ public class AccountMapper extends DataMapper<Account> {
 			// Fuer jeden Eintrag im Suchergebnis wird nun ein Account-Objekt
 			// erstellt.
 			while (rs.next()) {
-				int id = rs.getInt("id");
-				Account a = checkFor(id);
-				if (a == null) {
-					a = new Account();
-					a.setId(id);
-					a.setOwner(CustomerMapper.customerMapper().findByKey(rs.getInt("owner")));
-					a.setBalance(rs.getFloat("balance"));
-					// im Cache merken
-					this.remember(id, a);
-				}
+				Account a = new Account();
+				a.setId(rs.getInt("id"));
+				a.setOwner(CustomerMapper.customerMapper().findByKey(rs.getInt("owner")));
+				a.setBalance(rs.getFloat("balance"));
+
 				// Hinzufuegen des neuen Objekts zum Ergebnisvektor
 				result.addElement(a);
 			}
@@ -243,9 +217,8 @@ public class AccountMapper extends DataMapper<Account> {
 	 */
 	public Vector<Account> findByOwner(Customer owner) {
 		/*
-		 * Wir lesen einfach die Kundennummer (Primaerschluessel) des
-		 * Customer-Objekts aus und delegieren die weitere Bearbeitung an
-		 * findByOwner(int ownerID).
+		 * Wir lesen einfach die Kundennummer (Primaerschluessel) des Customer-Objekts
+		 * aus und delegieren die weitere Bearbeitung an findByOwner(int ownerID).
 		 */
 		return findByOwner(owner.getId());
 	}
@@ -275,16 +248,13 @@ public class AccountMapper extends DataMapper<Account> {
 			// Wenn wir etwas zurueckerhalten, kann dies nur einzeilig sein
 			if (rs.next()) {
 				/*
-				 * a erhaelt den bisher maximalen, nun um 1 inkrementierten
-				 * Primaerschluessel.
+				 * a erhaelt den bisher maximalen, nun um 1 inkrementierten Primaerschluessel.
 				 */
 				a.setId(rs.getInt("maxid") + 1);
 				stmt = con.createStatement();
 				// Jetzt erst erfolgt die tatsaechliche Einfuegeoperation
 				stmt.executeUpdate("INSERT INTO accounts (id, owner, balance) " + "VALUES (" + a.getId() + ","
 						+ a.getOwner().getId() + "," + a.getBalance() + ")");
-				// anschließend merken wir uns das Objekt im Cache
-				remember(a.getId(), a);
 			}
 		} catch (SQLException e2) {
 			e2.printStackTrace();
@@ -293,12 +263,11 @@ public class AccountMapper extends DataMapper<Account> {
 		/*
 		 * Rueckgabe, des evtl. korrigierten Accounts.
 		 *
-		 * HINWEIS: Da in Java nur Referenzen auf Objekte und keine physischen
-		 * Objekte uebergeben werden, waere die Anpassung des Account-Objekts
-		 * auch ohne diese explizite Rueckgabe ausserhalb dieser Methode
-		 * sichtbar. Die explizite Rueckgabe von a ist eher ein Stilmittel, um
-		 * zu signalisieren, dass sich das Objekt evtl. im Laufe der Methode
-		 * veraendert hat.
+		 * HINWEIS: Da in Java nur Referenzen auf Objekte und keine physischen Objekte
+		 * uebergeben werden, waere die Anpassung des Account-Objekts auch ohne diese
+		 * explizite Rueckgabe ausserhalb dieser Methode sichtbar. Die explizite
+		 * Rueckgabe von a ist eher ein Stilmittel, um zu signalisieren, dass sich das
+		 * Objekt evtl. im Laufe der Methode veraendert hat.
 		 */
 		return a;
 	}
@@ -321,10 +290,7 @@ public class AccountMapper extends DataMapper<Account> {
 		} catch (SQLException e2) {
 			e2.printStackTrace();
 		}
-		// falls das Objekt noch nicht ge-cached wurde oder ein anderes unter
-		// dieser Id vorliegt...
-		if (checkFor(a.getId()) != a)
-			remember(a.getId(), a);
+
 		// Um Analogie zu insert(Account a) zu wahren, geben wir a zurueck
 		return a;
 	}
@@ -340,27 +306,6 @@ public class AccountMapper extends DataMapper<Account> {
 		try {
 			Statement stmt = con.createStatement();
 			stmt.executeUpdate("DELETE FROM accounts " + "WHERE id=" + a.getId());
-			// der Account wird auch aus dem Cache entfernt
-			remove(a.getId());
-		} catch (SQLException e2) {
-			e2.printStackTrace();
-		}
-	}
-
-	/**
-	 * Loeschen saemtlicher Konten (<code>Account</code>-Objekte) eines Kunden.
-	 * Diese Methode sollte aufgerufen werden, bevor ein <code>Customer</code>
-	 * -Objekt geloescht wird.
-	 *
-	 * @param c
-	 *            das <code>Customer</code>-Objekt, zu dem die Konten gehoeren
-	 */
-	public void deleteAccountsOf(Customer c) {
-		Connection con = DBConnection.connection();
-
-		try {
-			Statement stmt = con.createStatement();
-			stmt.executeUpdate("DELETE FROM accounts " + "WHERE owner=" + c.getId());
 		} catch (SQLException e2) {
 			e2.printStackTrace();
 		}

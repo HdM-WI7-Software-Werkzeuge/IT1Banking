@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Vector;
 
 import de.hdm.bankProject.BankAdministration;
+import de.hdm.bankProject.BankAdministrationImpl;
 import de.hdm.bankProject.data.Account;
 import de.hdm.bankProject.data.Bank;
 import de.hdm.bankProject.data.Customer;
@@ -22,7 +23,7 @@ public class ReportGeneratorImpl implements ReportGenerator {
 	 * essentiellen Methoden f�r die Koexistenz von Datenobjekten (vgl.
 	 * data-Package) bietet.
 	 */
-	private BankAdministration verwaltung = null;
+	private BankAdministrationImpl verwaltung = null;
 
 	/**
 	 * Jeder ReportGenerator ben�tigt Zugriff auf die BankVerwaltung. Deren
@@ -34,7 +35,7 @@ public class ReportGeneratorImpl implements ReportGenerator {
 	 * @throws RemoteException
 	 * @see BankVerwaltung
 	 */
-	public ReportGeneratorImpl(BankAdministration bv) {
+	public ReportGeneratorImpl(BankAdministrationImpl bv) {
 		this.verwaltung = bv;
 	}
 

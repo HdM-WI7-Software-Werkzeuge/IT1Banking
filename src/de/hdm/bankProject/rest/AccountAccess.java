@@ -2,7 +2,7 @@ package de.hdm.bankProject.rest;
 
 import javax.ws.rs.client.ClientBuilder;
 
-public class AccountDisplay {
+public class AccountAccess {
 
 	public static void main(String[] args) {
 		System.out.println(

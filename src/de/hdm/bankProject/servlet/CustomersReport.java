@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import de.hdm.bankProject.BankAdministration;
+import de.hdm.bankProject.BankAdministrationImpl;
 import de.hdm.bankProject.report.AllAccountsOfAllCustomersReport;
 import de.hdm.bankProject.report.HTMLReportWriter;
 import de.hdm.bankProject.report.PlainTextReportWriter;
@@ -63,7 +63,7 @@ public class CustomersReport extends HttpServlet {
 
 	private static AllAccountsOfAllCustomersReport createAllAccountsOfAllCustomersReport() {
 
-		BankAdministration verwaltung = new BankAdministration();
+		BankAdministrationImpl verwaltung = new BankAdministrationImpl();
 		ReportGenerator gen = verwaltung.getReportGenerator();
 
 		
