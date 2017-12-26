@@ -16,15 +16,15 @@ import de.hdm.bankProject.data.Customer;
  * 
  * @author Rathke
  */
-public class BankAdministrationWeb implements BankAdministration {
+public class BankAdministrationProxy implements BankAdministration {
 
 	WebTarget webTarget = ClientBuilder.newClient().target("http://localhost:8080/IT1_Banking/bankservice");
 
 	/**
 	 * Konstruktor.
 	 */
-	public BankAdministrationWeb() {
-
+	public BankAdministrationProxy(String hostname) {
+		webTarget = ClientBuilder.newClient().target("http://" + hostname + "/IT1_Banking/bankservice");
 	}
 
 	/**

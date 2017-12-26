@@ -106,15 +106,6 @@ public interface BankAdministration {
 	Vector<Account> getAllAccounts();
 
 	/**
-	 * Alle Kunden mit allen Konten.
-	 * 
-	 * @return ein Vektor, dessen Elemente Vektoren sind. Jeder Teilvektor besteht
-	 *         aus einem Kundenobjekt an Position 0 und den zugehoerenden
-	 *         Kontenobjekten ab Position 1.
-	 */
-	Vector<Object> getAllCustomersAndAccounts();
-
-	/**
 	 * Der Kontostand wird um den angegebenen Betrag veraendert.
 	 * 
 	 * @param a

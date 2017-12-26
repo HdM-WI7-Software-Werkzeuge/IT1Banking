@@ -24,7 +24,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import de.hdm.bankProject.BankAdministration;
 import de.hdm.bankProject.BankAdministrationImpl;
-import de.hdm.bankProject.BankAdministrationWeb;
+import de.hdm.bankProject.BankAdministrationProxy;
 import de.hdm.bankProject.data.Account;
 import de.hdm.bankProject.data.Customer;
 
@@ -49,20 +49,26 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 
 	public BankInterface(BankAdministration bw) {
 		verwaltung = bw;
+		updateAllCustomerAndAccounts();
+		generateComponents();
+		frame.revalidate();
+		frame.pack();
+		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {
 
 		if (args.length > 0) {
+			final String hostname = args[0];
 			javax.swing.SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
-					new BankInterface(new BankAdministrationWeb()).generateComponents();
+					new BankInterface(new BankAdministrationProxy(hostname));
 				}
 			});
 		} else {
 			javax.swing.SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
-					new BankInterface(new BankAdministrationImpl()).generateComponents();
+					new BankInterface(new BankAdministrationImpl());
 				}
 			});
 		}
@@ -84,11 +90,10 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 		 * Applikationsserver geliefert werden.
 		 */
 		Component treePane = kuk.generateComponents(this);
-		kuk.update(verwaltung.getAllCustomersAndAccounts());
 
 		Component kundenPane = kuf.generateComponents(this);
 		Component kontenPane = kof.generateComponents(this);
-
+				
 		JSplitPane rightPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, kundenPane, kontenPane);
 		JSplitPane mainPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treePane, rightPane);
 
@@ -104,8 +109,19 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 		menuBar.setPreferredSize(new Dimension(200, 20));
 		frame.setJMenuBar(menuBar);
 
-		frame.pack();
-		frame.setVisible(true);
+	}
+	
+	private void updateAllCustomerAndAccounts() {
+		kuk.resetRoot();
+		Vector<Customer> customers = verwaltung.getAllCustomers();
+		Vector<AccountInfo> accounts = null;
+		for (Customer customer : customers) {
+			accounts = new Vector<AccountInfo>();
+			for (Account account : verwaltung.getAccountsOf(customer)) {
+				accounts.add(new AccountInfo(account));
+			}
+			kuk.addCustomerTreeNode(new CustomerInfo(customer), accounts);
+		}
 	}
 
 	/**
@@ -174,7 +190,8 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 		case "createCustomer":
 			System.out.println("Creating: Mathilda Mustermann.");
 			setSelectedCustomer(verwaltung.createCustomer("Mathilda", "Mustermann"));
-			kuk.addCustomerTreeNode(new CustomerInfo(selectedCustomer));
+			DefaultMutableTreeNode node = kuk.addCustomerTreeNode(new CustomerInfo(selectedCustomer), new Vector<AccountInfo>());
+			kuk.setSelectedCustomerNode(node);
 			break;
 
 		case "deleteCustomer":
@@ -253,7 +270,8 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 			if (selectedCustomer != null) {
 				System.out.println("Creating Account for " + kuf.getVorname() + " " + kuf.getNachname() + ".");
 				setSelectedAccount(verwaltung.createAccountFor(selectedCustomer));
-				kuk.addAccountTreeNode(new AccountInfo(selectedAccount));
+				DefaultMutableTreeNode anode = kuk.addAccountTreeNode(new AccountInfo(selectedAccount));
+				kuk.setSelectedAccountNode(anode);
 			} else {
 				JOptionPane.showMessageDialog(frame, "Kein Kunde ausgewählt!");
 			}
@@ -279,7 +297,7 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 				node = (DefaultMutableTreeNode) node.getParent();
 				CustomerInfo ci = (CustomerInfo) node.getUserObject();
 				setSelectedCustomer(ci.getCustomer());
-				kuk.setSelectedCustomerNode(node);
+				
 			}
 		}
 	}
@@ -295,7 +313,9 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 				if (e.getActionCommand().equalsIgnoreCase("Aktualisieren")) {
 					kuf.removeCustomer();
 					kof.removeAccount();
-					kuk.update(verwaltung.getAllCustomersAndAccounts());
+					kuk.setSelectedCustomerNode(null);
+					kuk.setSelectedAccountNode(null);
+					updateAllCustomerAndAccounts();
 				}
 			}
 		});

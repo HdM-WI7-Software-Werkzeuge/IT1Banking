@@ -216,29 +216,6 @@ public class BankAdministrationImpl implements BankAdministration {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.hdm.bankProject.BankAdministration#getAllCustomersAndAccounts()
-	 */
-	@Override
-	@GET
-	@Path("all")
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Vector getAllCustomersAndAccounts() {
-		Vector customers = null, accounts = null, customersAndAccounts = new Vector();
-		Customer c;
-		// alle Kunden
-		customers = getAllCustomers();
-		for (int i = 0; i < customers.size(); i++) {
-			c = (Customer) customers.elementAt(i);
-			// alle Konten eines Kunden
-			accounts = getAccountsOf(c);
-			// Kundenobjekt wird als erstes Element hinzugefuegt
-			accounts.add(0, c);
-			customersAndAccounts.add(accounts);
-		}
-		return customersAndAccounts;
-	}
-
-	/* (non-Javadoc)
 	 * @see de.hdm.bankProject.BankAdministration#modifyAccount(de.hdm.bankProject.data.Account, float)
 	 */
 	@Override
