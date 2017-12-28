@@ -191,7 +191,7 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 			System.out.println("Creating: Mathilda Mustermann.");
 			setSelectedCustomer(verwaltung.createCustomer("Mathilda", "Mustermann"));
 			DefaultMutableTreeNode node = kuk.addCustomerTreeNode(new CustomerInfo(selectedCustomer), new Vector<AccountInfo>());
-			kuk.setSelectedCustomerNode(node);
+			kuk.selectNode(node);
 			break;
 
 		case "deleteCustomer":
@@ -271,7 +271,7 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 				System.out.println("Creating Account for " + kuf.getVorname() + " " + kuf.getNachname() + ".");
 				setSelectedAccount(verwaltung.createAccountFor(selectedCustomer));
 				DefaultMutableTreeNode anode = kuk.addAccountTreeNode(new AccountInfo(selectedAccount));
-				kuk.setSelectedAccountNode(anode);
+				kuk.selectNode(anode);
 			} else {
 				JOptionPane.showMessageDialog(frame, "Kein Kunde ausgewählt!");
 			}
@@ -279,20 +279,19 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 	}
 
 	public void valueChanged(TreeSelectionEvent e) {
-		DefaultMutableTreeNode node = kuk.getLastSelectedPathComponent();
+		DefaultMutableTreeNode node = kuk.getSelectedNode();
 		if (node != null) {
 			if (node.getUserObject() instanceof CustomerInfo) {
 				setSelectedAccount(null);
-				kuk.setSelectedAccountNode(null);
 
 				CustomerInfo ci = (CustomerInfo) node.getUserObject();
 				setSelectedCustomer(ci.getCustomer());
-				kuk.setSelectedCustomerNode(node);
+				kuk.selectNode(node);
 
 			} else {
 				AccountInfo ai = (AccountInfo) node.getUserObject();
 				setSelectedAccount(ai.getAccount());
-				kuk.setSelectedAccountNode(node);
+				kuk.selectNode(node);
 
 				node = (DefaultMutableTreeNode) node.getParent();
 				CustomerInfo ci = (CustomerInfo) node.getUserObject();
@@ -313,8 +312,6 @@ public class BankInterface implements ActionListener, TreeSelectionListener {
 				if (e.getActionCommand().equalsIgnoreCase("Aktualisieren")) {
 					kuf.removeCustomer();
 					kof.removeAccount();
-					kuk.setSelectedCustomerNode(null);
-					kuk.setSelectedAccountNode(null);
 					updateAllCustomerAndAccounts();
 				}
 			}

@@ -33,10 +33,8 @@ public class CustomersAndAccounts {
 
 	private DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode();;
 	private DefaultTreeModel treeModel = new DefaultTreeModel(rootNode);
-	private JTree tree;
+	private JTree tree = new JTree();
 
-	private DefaultMutableTreeNode selectedCustomerNode;
-	private DefaultMutableTreeNode selectedAccountNode;
 
 	/**
 	 * Erzeugen des Kunden-und-Konten-Baumes.
@@ -45,7 +43,6 @@ public class CustomersAndAccounts {
 	 * @return
 	 */
 	Component generateComponents(BankInterface bi) {
-		tree = new JTree();
 		tree.setRootVisible(false);
 		tree.setShowsRootHandles(true);
 		
@@ -70,8 +67,22 @@ public class CustomersAndAccounts {
 	 * 
 	 * @return
 	 */
-	DefaultMutableTreeNode getLastSelectedPathComponent() {
+	DefaultMutableTreeNode getSelectedNode() {
 		return (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+	}
+	
+	/**
+	 * Prüft, ob ein Knoten ein Customer-Knoten ist
+	 */
+	boolean isCustomerNode(DefaultMutableTreeNode node) {
+		return (node != null) && (node.getUserObject() instanceof CustomerInfo);
+	}
+	
+	/**
+	 * Prüft, ob ein Knoten ein Acocunt-Knoten ist
+	 */
+	boolean isAccountNode(DefaultMutableTreeNode node) {
+		return (node != null) && (node.getUserObject() instanceof AccountInfo);
 	}
 
 	/**
@@ -81,15 +92,15 @@ public class CustomersAndAccounts {
 	 */
 	DefaultMutableTreeNode addCustomerTreeNode(CustomerInfo customer, Vector<AccountInfo> accounts) {
 		DefaultMutableTreeNode customerNode = new DefaultMutableTreeNode(customer);
-		if (selectedCustomerNode != null) {
+		if (isCustomerNode(getSelectedNode())) {
 			treeModel.insertNodeInto(customerNode, rootNode,
-					treeModel.getIndexOfChild(rootNode, selectedCustomerNode) + 1);
+					treeModel.getIndexOfChild(rootNode, getSelectedNode()) + 1);
 		} else {
 			rootNode.add(customerNode);
 		}
 
 		DefaultMutableTreeNode accountNode = null;
-		for (int j = 1; j < accounts.size(); j++) {
+		for (int j = 0; j < accounts.size(); j++) {
 			accountNode = new DefaultMutableTreeNode(accounts.elementAt(j));
 			customerNode.add(accountNode);
 		}
@@ -106,14 +117,19 @@ public class CustomersAndAccounts {
 	 * @param infoObject
 	 */
 	DefaultMutableTreeNode addAccountTreeNode(AccountInfo infoObject) {
-		if (selectedCustomerNode != null) {
-			DefaultMutableTreeNode childNode = new DefaultMutableTreeNode(infoObject);
-			selectedCustomerNode.add(childNode);
-			setSelectedAccountNode(childNode);
-			treeModel.reload(selectedCustomerNode);
-			return childNode;
+		DefaultMutableTreeNode childNode = new DefaultMutableTreeNode(infoObject);
+		if (isCustomerNode(getSelectedNode())) {
+			getSelectedNode().add(childNode);
+			treeModel.reload(getSelectedNode());
+			
+			selectNode(childNode);
+		} else if (isAccountNode(getSelectedNode())) {
+			((DefaultMutableTreeNode)getSelectedNode().getParent()).add(childNode);
+			treeModel.reload(getSelectedNode().getParent());
+			
+			selectNode(childNode);
 		}
-		return null;
+		return childNode;
 	}
 
 	/**
@@ -123,11 +139,11 @@ public class CustomersAndAccounts {
 	 * @param c
 	 */
 	void modifyCustomerTreeNode(Customer c) {
-		if (selectedCustomerNode != null) {
-			Object infoObject = selectedCustomerNode.getUserObject();
-			if ((infoObject instanceof CustomerInfo) && ((CustomerInfo) infoObject).getCustomer().equals(c)) {
-				selectedCustomerNode.setUserObject(new CustomerInfo(c));
-				treeModel.nodeChanged(selectedCustomerNode);
+		if (isCustomerNode(getSelectedNode())) {
+			CustomerInfo infoObject = (CustomerInfo)getSelectedNode().getUserObject();
+			if (infoObject.getCustomer().equals(c)) {
+				getSelectedNode().setUserObject(new CustomerInfo(c));
+				treeModel.nodeChanged(getSelectedNode());
 			}
 		}
 	}
@@ -138,11 +154,10 @@ public class CustomersAndAccounts {
 	 * @param c
 	 */
 	void removeCustomerTreeNode(Customer c) {
-		if (selectedCustomerNode != null) {
-			Object infoObject = selectedCustomerNode.getUserObject();
-			if ((infoObject instanceof CustomerInfo) && ((CustomerInfo) infoObject).getCustomer().equals(c)) {
-				treeModel.removeNodeFromParent(selectedCustomerNode);
-				setSelectedCustomerNode(null);
+		if (isCustomerNode(getSelectedNode())) {
+			CustomerInfo infoObject = (CustomerInfo)getSelectedNode().getUserObject();
+			if (infoObject.getCustomer().equals(c)) {
+				treeModel.removeNodeFromParent(getSelectedNode());
 			}
 		}
 	}
@@ -153,13 +168,12 @@ public class CustomersAndAccounts {
 	 * @param a
 	 */
 	void removeAccountTreeNode(Account a) {
-		if (selectedAccountNode != null) {
-			Object infoObject = selectedAccountNode.getUserObject();
-			if ((infoObject instanceof AccountInfo) && ((AccountInfo) infoObject).getAccount().equals(a)) {
-				DefaultMutableTreeNode customerNode = (DefaultMutableTreeNode)selectedAccountNode.getParent();
-				treeModel.removeNodeFromParent(selectedAccountNode);
-				setSelectedCustomerNode(customerNode);
-				setSelectedAccountNode(null);
+		if (isAccountNode(getSelectedNode())) {
+			AccountInfo infoObject = (AccountInfo)getSelectedNode().getUserObject();
+			if (infoObject.getAccount().equals(a)) {
+				DefaultMutableTreeNode customerNode = (DefaultMutableTreeNode)getSelectedNode().getParent();
+				treeModel.removeNodeFromParent(getSelectedNode());
+				selectNode(customerNode);
 			}
 		}
 	}
@@ -177,38 +191,20 @@ public class CustomersAndAccounts {
 		while (enumer.hasMoreElements()) {
 			node = (DefaultMutableTreeNode) enumer.nextElement();
 			CustomerInfo ci = (CustomerInfo) node.getUserObject();
-			System.out.println(c.hashCode() + " " + ci.getCustomer().hashCode());
-			boolean isEqual = (ci.getCustomer().getId() == c.getId());
-			if (isEqual) {
-				setSelectedCustomerNode(node);
-				setSelectedAccountNode(null);
-				tree.setSelectionPath(new TreePath(selectedCustomerNode.getPath()));
-				return;
+			if (ci.getCustomer().equals(c)) {
+				selectNode(node);
+				break;
 			}
 		}
 	}
-
+	
+	
 	/**
-	 * Setter of the property <tt>selectedCustomerNode</tt>
-	 * 
+	 * Select a node by setting its tree selection path
 	 * @param node
-	 *            The selectedCustomerNode to set.
 	 */
-	void setSelectedCustomerNode(DefaultMutableTreeNode node) {
-		this.selectedCustomerNode = node;
-		if (node != null) {
-			tree.setSelectionPath(new TreePath(node.getPath()));
-		}
-	}
-
-	/**
-	 * Setter of the property <tt>selectedAccountNode</tt>
-	 * 
-	 * @param selectedAccountNode
-	 *            The selectedAccountNode to set.
-	 */
-	void setSelectedAccountNode(DefaultMutableTreeNode node) {
-		this.selectedAccountNode = node;
+	
+	void selectNode(DefaultMutableTreeNode node) {
 		if (node != null) {
 			tree.setSelectionPath(new TreePath(node.getPath()));
 		}
